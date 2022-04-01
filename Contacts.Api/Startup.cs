@@ -1,7 +1,11 @@
+using Contacts.Core.Resources;
+using Contacts.CrossCutting.IoC;
+using Contacts.Infrastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Contacts.Api
@@ -26,11 +31,27 @@ namespace Contacts.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DbContext"));
+            });
+
+            Config.DependencyInjection(services);
+
+            services.AddAutoMapper(
+                typeof(ConfigurationProfile).GetTypeInfo().Assembly
+            );
+
+            //services.AddCors();
+
+            //services.AddMvcCore().AddApiExplorer();
+
+            //services.AddRouting(options => options.LowercaseUrls = true);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Contacts.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ContactsManagement", Version = "v1" });
             });
         }
 
@@ -41,12 +62,22 @@ namespace Contacts.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Contacts.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ContactsManagement v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //app.UseCors();
+            //app.UseCors(configure =>
+            //    configure
+            //        .AllowAnyHeader()
+            //        .AllowAnyMethod()
+            //        .AllowAnyOrigin()
+            //        //.AllowCredentials() 
+            //        //.WithExposedHeaders("x-total-count")
+            //);
 
             app.UseAuthorization();
 

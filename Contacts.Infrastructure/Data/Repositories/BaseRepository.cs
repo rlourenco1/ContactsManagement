@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Contacts.Infrastructure.Data.Repositories
 {
     public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
-                 where TEntity : class
+    where TEntity : class
     {
         protected readonly DbContext _context;
 
@@ -38,7 +38,7 @@ namespace Contacts.Infrastructure.Data.Repositories
             return _context.Set<TEntity>().Find(id);
         }
 
-        public virtual IEnumerable<TEntity> ListAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();
         }

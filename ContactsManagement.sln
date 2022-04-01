@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Api", "Contacts.Api\Contacts.Api.csproj", "{A00A78F6-9889-493C-BA27-CDA7B297F30E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts.Api", "Contacts.Api\Contacts.Api.csproj", "{A00A78F6-9889-493C-BA27-CDA7B297F30E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Core", "Contacts.Core\Contacts.Core.csproj", "{84AF05DC-AE44-4A08-B19A-88CF917DE7F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts.Core", "Contacts.Core\Contacts.Core.csproj", "{84AF05DC-AE44-4A08-B19A-88CF917DE7F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Infrastructure", "Contacts.Infrastructure\Contacts.Infrastructure.csproj", "{C051E687-D035-4AB3-8CF7-8AC66D5F96B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts.Infrastructure", "Contacts.Infrastructure\Contacts.Infrastructure.csproj", "{C051E687-D035-4AB3-8CF7-8AC66D5F96B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.CrossCutting.IoC", "Contacts.CrossCutting.IoC\Contacts.CrossCutting.IoC.csproj", "{E827E0C5-3FFD-4017-809F-42D2697B38D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C051E687-D035-4AB3-8CF7-8AC66D5F96B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C051E687-D035-4AB3-8CF7-8AC66D5F96B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C051E687-D035-4AB3-8CF7-8AC66D5F96B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E827E0C5-3FFD-4017-809F-42D2697B38D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E827E0C5-3FFD-4017-809F-42D2697B38D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E827E0C5-3FFD-4017-809F-42D2697B38D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E827E0C5-3FFD-4017-809F-42D2697B38D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

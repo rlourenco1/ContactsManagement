@@ -12,7 +12,7 @@ namespace Contacts.Core.Interfaces.Repositories
         void Update(TEntity entity);
         void Delete(TEntity entity);
         TEntity GetById(int id);
-        IEnumerable<TEntity> ListAll();
+        IEnumerable<TEntity> GetAll();
         int SaveChanges();
 
     }
