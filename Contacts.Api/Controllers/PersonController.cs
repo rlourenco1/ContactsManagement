@@ -50,10 +50,11 @@ namespace Contacts.Api.Controllers
             //return Ok();
         }
 
+        [Route("{id}")]
         [HttpDelete]
-        public ActionResult Delete([FromBody] PersonViewModel model)
+        public ActionResult DeleteById(int id)
         {
-            _personService.Delete(model);
+            _personService.DeleteById(id);
 
             return Ok();
         }

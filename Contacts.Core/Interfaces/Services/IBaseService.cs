@@ -12,6 +12,8 @@ namespace Contacts.Core.Interfaces.Services
         TViewModel Update(TViewModel viewModel);
         void Delete(TViewModel viewModel);
         TViewModel GetById(int id);
+        void DeleteById(int id);
+
         IEnumerable<TViewModel> GetAll();
     }
 }

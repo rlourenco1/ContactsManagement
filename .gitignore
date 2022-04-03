@@ -16,6 +16,10 @@
 # Mono auto generated files
 mono_crash.*
 
+# Settings
+appsettings.json
+appsettings.Development.json
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -29,6 +33,10 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
+
+#Release
+Dockerfile
+Dockerfile.bak
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/

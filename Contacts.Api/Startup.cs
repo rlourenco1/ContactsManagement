@@ -33,7 +33,8 @@ namespace Contacts.Api
         {
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DbContext"));
+                //options.UseSqlServer(Configuration.GetConnectionString("DbContext"));
+                options.UseMySQL(Configuration.GetConnectionString("DbContext"));
             });
 
             Config.DependencyInjection(services);
@@ -42,7 +43,7 @@ namespace Contacts.Api
                 typeof(ConfigurationProfile).GetTypeInfo().Assembly
             );
 
-            //services.AddCors();
+            services.AddCors();
 
             //services.AddMvcCore().AddApiExplorer();
 
@@ -70,14 +71,14 @@ namespace Contacts.Api
             app.UseRouting();
 
             //app.UseCors();
-            //app.UseCors(configure =>
-            //    configure
-            //        .AllowAnyHeader()
-            //        .AllowAnyMethod()
-            //        .AllowAnyOrigin()
-            //        //.AllowCredentials() 
-            //        //.WithExposedHeaders("x-total-count")
-            //);
+            app.UseCors(configure =>
+                configure
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
+            //.AllowCredentials() 
+            //.WithExposedHeaders("x-total-count")
+            );
 
             app.UseAuthorization();
 

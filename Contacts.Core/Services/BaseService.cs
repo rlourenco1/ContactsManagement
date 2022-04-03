@@ -33,7 +33,7 @@ namespace Contacts.Core.Services
 
                 this._repository.SaveChanges();
 
-                return viewModel;
+                return _mapper.Map<TViewModel>(model);
             }
             catch (Exception ex)
             {
@@ -68,6 +68,22 @@ namespace Contacts.Core.Services
             try
             {
                 var model = _mapper.Map<TEntity>(viewModel);
+
+                this._repository.Delete(model);
+
+                this._repository.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void DeleteById(int id)
+        {
+            try
+            {
+                var model = this._repository.GetById(id);
 
                 this._repository.Delete(model);
 
